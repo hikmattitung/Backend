@@ -3,13 +3,17 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 
+//importing a user route here
+const userRoute = require('./routes/user')
+
+
 const app = express();
 
-const port = process.env.PORT || 8000;
+app.use(express.json());
 
-app.get("/", (req, res) => {
-    res.send("hello from Backend Nepal port");
-});
+const port = 8000;
+
+app.use('/api/v1/user', userRoute);
 
 
 
